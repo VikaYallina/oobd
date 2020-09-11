@@ -12,8 +12,27 @@ public class Client extends Person{
         this.password = password;
     }
 
-    public void makeOrder(int id, String address, List<Product> products){
-        orderList.add(new Order(id, address, products));
+    private Order findOpenOrder(){
+        for (Order order: orderList) {
+            if (order.getOrderStatus() == Status.OPEN)
+                return order;
+        }
+        return null;
+    }
+
+    public void createOrder(int number, String address, List<Product> products) {
+        Order newOrder = findOpenOrder();
+        if (newOrder == null){
+            orderList.add(new Order(number, address, products, Status.OPEN));
+        }
+
+    }
+
+    public void ConfirmOrder(){
+        for (Order order: orderList){
+            if(order.getOrderStatus() == Status.OPEN)
+                order.setOrderStatus(Status.ORDERED);
+        }
     }
 
     public void setOrderList(List<Order> orderList){

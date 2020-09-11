@@ -1,14 +1,13 @@
 public class Product {
     private String productName;
     private double productPrice;
-    private int productAmount;
+    private static int productAmount;
     private Arrival productArrival;
 
-    public Product(String name, double price, int amount, Arrival arrival){
+    public Product(String name, double price, int amount){
         this.productAmount = amount;
         this.productName = name;
         this.productPrice = price;
-        this.productArrival = arrival;
     }
 
     public boolean isInStock() throws Exception {

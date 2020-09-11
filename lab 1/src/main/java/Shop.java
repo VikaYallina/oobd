@@ -3,7 +3,6 @@ import java.util.List;
 public class Shop {
     private List<Client> clientList;
     private List<Provider> providerList;
-    private List<Order> orderList;
     private List<Product> productList;
 
     public void setProductList(List<Product> productList) {
@@ -22,13 +21,13 @@ public class Shop {
         this.clientList = clientList;
     }
 
-    public List<Order> getOrderList() {
-        return orderList;
-    }
-
-    public void setOrderList(List<Order> orderList) {
-        this.orderList = orderList;
-    }
+//    public List<Order> getOrderList() {
+//        return orderList;
+//    }
+//
+//    public void setOrderList(List<Order> orderList) {
+//        this.orderList = orderList;
+//    }
 
     public List<Provider> getProviderList() {
         return providerList;
@@ -43,7 +42,7 @@ public class Shop {
         return "Shop: " +
                 "clientList=" + clientList + '\n' +
                 ", providerList=" + providerList + '\n' +
-                ", orderList=" + orderList + '\n' +
+             //   ", orderList=" + orderList + '\n' +
                 ", productList=" + productList +
                 '\n';
     }

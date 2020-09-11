@@ -2,26 +2,43 @@ import java.util.Date;
 import java.util.List;
 
 public class Order {
-    private int orderID;
+    private int orderNumber;
     private List<Product> productList;
     private Status orderStatus;
     private String deliveryAddress;
     private Date orderDate;
 
-    public Order(int id, String deliveryAddress, List<Product> productList){
-        this.orderID = id;
+    public Order(int id, String deliveryAddress, List<Product> productList, Status status){
+        this.orderNumber = id;
         this.productList = productList;
         this.deliveryAddress = deliveryAddress;
-        this.orderStatus = Status.ORDERED;
+        this.orderStatus = status;
         this.orderDate = new Date();
+    }
+
+    public boolean addProduct(Product product) throws Exception {
+        if (product.isInStock()){
+            productList.add(product);
+
+            return true;
+        }
+        else return false;
+    }
+
+    public int getOrderPrice(){
+        int totalPrice = 0;
+        for(Product product : productList){
+            totalPrice+=product.getProductPrice();
+        }
+        return totalPrice;
     }
 
     public Date getOrderDate() {
         return orderDate;
     }
 
-    public int getOrderID() {
-        return orderID;
+    public int getOrderNumber() {
+        return orderNumber;
     }
 
     public Status getOrderStatus() {
@@ -50,7 +67,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order: " + getOrderID() +
+        return "Order: " + getOrderNumber() +
                 ", date= " + getOrderDate() +
                 ", address=" + getDeliveryAddress() +
                 ", products=" + productList +
