@@ -1,9 +1,10 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
-public class Client extends Person{
+public class Client extends Person implements Comparable<Client> {
     private List<Order> orderList = new ArrayList<>();
 
     private String login;
@@ -69,5 +70,10 @@ public class Client extends Person{
         return "Client: " + getName() +
                 ", orders=" + orderList +
                 '\n';
+    }
+
+    @Override
+    public int compareTo(Client client) {
+        return login.compareTo(client.getLogin());
     }
 }

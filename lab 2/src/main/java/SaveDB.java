@@ -2,6 +2,7 @@ import com.google.gson.Gson;
 import domain.Client;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class SaveDB {
@@ -12,7 +13,7 @@ public class SaveDB {
             System.out.println(clientListAsJSON);
 
             try(OutputStream outputStream = new FileOutputStream(new File("clients.json"))){
-                outputStream.write(clientListAsJSON.getBytes("UTF-8"));
+                outputStream.write(clientListAsJSON.getBytes(StandardCharsets.UTF_8));
                 outputStream.flush();
             } catch (IOException e) {
                 e.printStackTrace();

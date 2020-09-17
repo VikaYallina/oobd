@@ -3,8 +3,7 @@ package domain;
 public class Product {
     private String productName;
     private double productPrice;
-    private static int productAmount;
-    private Arrival productArrival;
+    private int productAmount;
 
     public Product(String name, double price, int amount){
         this.productAmount = amount;
@@ -50,8 +49,6 @@ public class Product {
         return "Product: " + getProductName() +
                 ", amount=" + getProductAmount() +
                 ", price=" + getProductPrice() +
-                ", arrival date=" + productArrival.getDate() +
-                ", arrival provider=" + productArrival.getProvider() +
                 '\n';
     }
 }

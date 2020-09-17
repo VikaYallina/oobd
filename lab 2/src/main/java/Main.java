@@ -30,8 +30,8 @@ public class Main {
 //        client2.createOrder(1, "Paris", prList2);
 //        try{
 //            List<Client> clientList = new ArrayList<>();
-//            clientList.add(client1);
 //            clientList.add(client2);
+//            clientList.add(client1);
 //            SaveDB.saveClientList(clientList);
 //        } catch (IOException e) {
 //            e.printStackTrace();
@@ -39,9 +39,16 @@ public class Main {
 
         try{
             List<Client> clientList = LoadDB.loadClientList();
-            List<Client> list = new ArrayList<>(clientList);
-            list.add(new Client("Chrlie", "New York", "ch1", "password123"));
-            SaveDB.saveClientList(list);
+//            List<Client> list = new ArrayList<>(clientList);
+//            list.add(new Client("Charlie", "New York", "ch1", "password123"));
+//            Client client = ClientService.searchClient(clientList,"mike");
+//            assert client != null;
+//            System.out.println(client.getOrderList());
+//            SaveDB.saveClientList(list);
+            System.out.println(clientList);
+            System.out.println("============================");
+            ClientService.sortClientList(clientList);
+            System.out.println(clientList);
         } catch (IOException e) {
             e.printStackTrace();
         }

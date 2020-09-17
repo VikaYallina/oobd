@@ -14,7 +14,6 @@ public class Order {
         this.orderNumber = id;
         this.productList = productList;
         this.deliveryAddress = deliveryAddress;
-
         this.orderDate = new Date();
     }
 
