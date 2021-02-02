@@ -16,7 +16,7 @@ public class Main {
              ) {
             System.out.println(prod);
         }
-        productList.get(1).setName("lamp");
+        productList.get(0).setName("TV");
         DBservice.saveDB(connection, productList);
     }
 }

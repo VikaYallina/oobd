@@ -34,8 +34,8 @@ public class Product extends PGobject {
     }
 
     public String getValue() {
-        return "('" + model + "','" + name + "'," + stock + ",'" +
-                 new SimpleDateFormat("yyyy-MM-dd").format(firstDateAvailable) + "')";
+        return "(" + model + "," + name + "," + stock + "," +
+                 new SimpleDateFormat("yyyy-MM-dd").format(firstDateAvailable) + ")";
     }
 
 

@@ -15,12 +15,12 @@ public class Main {
             String dbURL = "jdbc:postgresql://localhost:5432/oodb";
 
             Connection connection = DriverManager.getConnection(dbURL, "postgres", "jessica17");
-            LoadFromDB.loadClientList(connection);
+            //List<Client> clients = LoadFromDB.loadClientList(connection);
 
             List<Client> clients = LoadFromFile.loadClientList();
-            clients.forEach(System.out :: println);
 
             ClientService.sortClientList(clients);
+            assert clients != null;
             Client client = ClientService.searchClient(clients, "jeff");
             assert client != null;
             client.setName("Jeff1");

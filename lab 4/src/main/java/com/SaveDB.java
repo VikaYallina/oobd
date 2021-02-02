@@ -24,14 +24,15 @@ public class SaveDB {
 //            statement.setString(1, clientsAsJSON);
 //            statement.setString(2, clientsAsJSON);
 
-            //PreparedStatement statement = connection.prepareStatement("UPDATE lab4 SET json= cast(? as json) WHERE id=1");
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO lab4 (json) VALUES (cast(? as json))");
-//            statement.setString(1, clientsAsJSON);
+            //PreparedStatement statement = connection.prepareStatement("UPDATE lab4 SET json= cast(? as json) WHERE id=cast(? as INTEGER)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO lab4 ( json) VALUES (cast(? as json))");
 
+            int i = 1;
             Instant start = Instant.now();
             for (String str: listJSONString){
                 statement.setString(1, str);
                 statement.executeUpdate();
+                i++;
             }
             //statement.executeUpdate();
 
@@ -39,11 +40,15 @@ public class SaveDB {
             System.out.println("JSON INSERT query time: "+ Duration.between(start, end));
             statement.close();
 
-            PreparedStatement statement1 = connection.prepareStatement("UPDATE lab4 SET jsonb= cast(? as jsonb) WHERE id=1");
-            statement1.setString(1, clientsAsJSON);
+            PreparedStatement statement1 = connection.prepareStatement(" INSERT INTO lab4 ( jsonb) VALUES (cast(? as jsonb))");
 
+            i = 1;
             start = Instant.now();
-            statement1.executeUpdate();
+            for (String str: listJSONString){
+                statement1.setString(1, str);
+                statement1.executeUpdate();
+                i++;
+            }
 
             end = Instant.now();
             System.out.println("JSONB UPDATE query time: "+ Duration.between(start, end));

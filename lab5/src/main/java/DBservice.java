@@ -13,8 +13,8 @@ public class DBservice {
         PreparedStatement statement = connection.prepareStatement("SELECT product FROM t_product");
         ResultSet resultSet = statement.executeQuery();
 
-        Product product = null;
-        String productStr = "";
+        Product product;
+        String productStr;
         List<Product> resultList = new ArrayList<>();
         while (resultSet.next()){
             productStr = resultSet.getString("product");
